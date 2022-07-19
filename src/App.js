@@ -1,9 +1,12 @@
-import './App.css';
+import './App.scss';
+import NavBar from './components/NavBar/NavBar';
+
 
 function App() {
   return (
-    <div className="App">
-        <h1>Mi primer proyecto react</h1>
+    
+    <div className="container">
+      <NavBar />
     </div>
   );
 }

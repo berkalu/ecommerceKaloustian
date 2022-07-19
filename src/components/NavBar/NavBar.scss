@@ -1,0 +1,39 @@
+
+.navbar-primary {
+    width: 90%;
+    margin: auto;
+    box-shadow: 1px 3px 5px #e7e7e7;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: lightgray;
+    img {
+        width: 150px;
+        height: 150px;
+    }
+    .cart {
+        display: flex;
+        margin: auto;
+        align-items: center;
+        cursor: pointer;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        margin: auto;
+        li {
+            margin: 0px 40px;
+            button {
+                border: none;
+                background: none;
+                font-size: 20px;
+                cursor: pointer;
+                text-transform: uppercase;
+                &:hover {
+                    background-color: grey;
+                    transition:all .9s ease-in-out;
+                }
+            }
+        }        
+    } 
+}
