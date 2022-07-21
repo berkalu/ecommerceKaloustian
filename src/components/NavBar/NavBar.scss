@@ -2,7 +2,7 @@
 .navbar-primary {
     width: 90%;
     margin: auto;
-    box-shadow: 1px 3px 5px #e7e7e7;
+    box-shadow: 2px 4px 5px lightgray;
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -30,7 +30,7 @@
                 cursor: pointer;
                 text-transform: uppercase;
                 &:hover {
-                    background-color: grey;
+                    background-color: #429595;
                     transition:all .9s ease-in-out;
                 }
             }

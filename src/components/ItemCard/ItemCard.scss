@@ -1,0 +1,26 @@
+.item-card {
+    width: 25%;
+    box-shadow: 2px 4px 5px lightgray;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+    background-color: lightgrey;
+    width: 25%;
+    padding: 20px;
+    border-radius: 10%;
+    img {
+        width:99%;
+        border-radius: 10%;
+    }
+    button {
+        margin-top: 20px;
+        width: 40%;
+        cursor: pointer;
+        &:hover {
+            background-color: #429595;
+            transition:all .9s ease-in-out;
+    }
+}
+}
