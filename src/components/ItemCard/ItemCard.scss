@@ -9,13 +9,18 @@
     background-color: lightgrey;
     width: 25%;
     padding: 20px;
-    border-radius: 10%;
+    border-radius: 10%;   
     img {
         width:99%;
         border-radius: 10%;
     }
-    button {
-        margin-top: 20px;
+    .stock {
+        margin: 5px;
+        text-align: center;
+        font-size: 12px;
+    }
+    .comprar {
+        margin-top: 10px;
         width: 40%;
         cursor: pointer;
         &:hover {

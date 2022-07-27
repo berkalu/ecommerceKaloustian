@@ -1,6 +1,6 @@
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
-import ItemContenedor from './components/ItemListContainer/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="container">
         <NavBar />
       <section className='mainProductos'>
-        <ItemContenedor section="PRODUCTOS"/>
+        <ItemListContainer section="PRODUCTOS"/>
       </section>
     </div>
   );
