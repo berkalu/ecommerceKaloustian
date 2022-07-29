@@ -4,28 +4,37 @@ import './ItemCount.scss'
 
 const ItemCount = ({stock, initial, onAdd }) => {
 
-    const [counter, setCounter] = useState(initial)
-
-    const addNumber = () => {
-        if (stock > counter){
-            setCounter (counter + 1)
-        }
+    const [counter, setCounter] = useState(initial);
+    const addProduct = (num) => {
+      setCounter(counter + num);
     };
-
-    const removeNumber = () => {
-        if (counter > 1) {
-            setCounter(counter - 1)
-        }
-    };
-
+  
     return (
-        <div className='contProductos'>
-            <button className='contador' onClick={removeNumber}>-</button>
-            <p>{counter}</p>
-            <button className='contador' onClick={addNumber}>+</button>
-        </div>
-    )
-
-};
+        <div className="contProductos">
+          <button
+            className="contador"
+            onClick={() => addProduct(-1)}
+            disabled={counter === initial}
+          >
+            -
+          </button>
+          <span className="counter">{counter}</span>
+          <button
+            className="contador"
+            onClick={() => addProduct(+1)}
+            disabled={counter === stock}
+          >
+            +
+          </button>
+            {/* <button
+            className="button-primary"
+            onClick={() => onAdd(counter)}
+            disabled={stock === 0 ? true : null}
+            >
+            Añadir
+          </button> */}
+        </div> 
+    );
+  };
 
 export default ItemCount;
