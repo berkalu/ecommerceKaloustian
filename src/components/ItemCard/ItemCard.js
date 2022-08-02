@@ -8,11 +8,9 @@ const ItemCard = ({data}) => {
             <img src={`/assets/${image}`} alt="Imagen producto" />
             <p>{title}</p>
             <span>USD$ {price}</span>
-            <div className='stock'>STOCK: {stock}</div>
-            <ItemCount stock={stock} initial={1} />
-            <button className='comprar'>COMPRAR</button>
+            <button className='comprar'>VER DETALLES</button>
         </div> 
     )
 }
 
-export default ItemCard
+export default ItemCard;

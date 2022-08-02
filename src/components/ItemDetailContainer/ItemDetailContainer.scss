@@ -1,0 +1,17 @@
+.mainProductos {
+    margin-top: 150px;
+    .list-productos {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: auto;
+        .title-productos {
+            position: absolute;
+            text-align: center;
+            font-size: 50px;
+            margin-top: -100px;
+        }
+    }
+    }
