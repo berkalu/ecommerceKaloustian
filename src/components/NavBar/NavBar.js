@@ -7,7 +7,7 @@ const NavBar = () => {
       return(
 
           <div className='navbar-primary'>
-              <img src="/assets/logo.png" alt="logo" />
+              <Link to="/"> <img src="/assets/logo.png" alt="logo" /></Link>
               <ul>
               <Link to="/"><li><button>Home</button></li></Link>
               <div className="dropdown">
