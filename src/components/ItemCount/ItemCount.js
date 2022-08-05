@@ -26,13 +26,6 @@ const ItemCount = ({stock, initial, onAdd }) => {
           >
             +
           </button>
-            {/* <button
-            className="button-primary"
-            onClick={() => onAdd(counter)}
-            disabled={stock === 0 ? true : null}
-            >
-            Añadir
-          </button> */}
         </div> 
     );
   };

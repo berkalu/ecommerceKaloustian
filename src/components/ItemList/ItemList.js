@@ -1,11 +1,11 @@
-import ItemCard from "../ItemCard/ItemCard"
+import ItemProduct from "../ItemProduct/ItemProduct"
 
 
-const ItemList = ({dataProducts}) => {
+const ItemList = ({listProducts}) => {
 return (
 <>
-{dataProducts.map((product)=> {
-return <ItemCard key={product.id}  data={product}/>
+{listProducts.map((product)=> {
+    return <ItemProduct key={product.id}  data={product}/>
 })}       
 
 

@@ -1,16 +1,15 @@
-//importo los productos
-import { productList } from '../utils/products.mock';
+
+import { productList } from '../../utils/product.mock';
 
 const getById = (id, array) => array.find((el) => el.id === id);
 
-// promesas
 const getProducts = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve(productList);
   }, 2000);
 });
 
-//Async Await que setea mi hook de estado
+
 const getAllProducts = async (setState) => {
   try {
     const result = await getProducts;
@@ -21,7 +20,7 @@ const getAllProducts = async (setState) => {
   }
 };
 
-//Async Await que setea mi hook de estado
+
 const getProductById = async (id, setState) => {
   try {
     const result = await getProducts;

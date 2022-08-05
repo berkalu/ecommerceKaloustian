@@ -7,6 +7,8 @@
     justify-content: space-between;
     padding: 20px;
     background-color: lightgray;
+    margin-bottom: 100px;
+    text-align: center;
     img {
         width: 150px;
         height: 150px;
@@ -33,6 +35,11 @@
                     background-color: #429595;
                     transition:all .9s ease-in-out;
                 }
+            }
+            .button2 {
+                font-size: 12px;
+                text-align: center;
+                text-decoration: none;
             }
         }        
     } 

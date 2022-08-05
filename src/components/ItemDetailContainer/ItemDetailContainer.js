@@ -1,56 +1,40 @@
-import {useEffect, useState} from 'react'
-import products from "../utils/products2.mock"
-import ItemDetail from '../ItemDetail/ItemDetail' 
+import { useEffect, useState } from 'react'
+import '../ItemListContainer/ItemListContainer.scss'
+import products from "../../utils/product.mock"
+import { useParams } from 'react-router-dom'
+import ItemDetail from "../ItemDetail/ItemDetail"
+
+const ItemDetailContainer = ({}) => {
+
+    const { id } = useParams()
+    const [productData, setProductData] = useState([])
+
+    useEffect(() => {
+        filterById()
+    }, [])
 
 
+    const filterById = () => {
 
-const ItemDetailContainer = ({section}) => {
+        products.some((product) => {
+            if (product.id == id) {
 
-    const [listProducts, setlistProducts] = useState([])
+                setProductData(product)
 
-    const getItem = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(products)         
-        }, 2000);
-    
-    })
-    
-    
-    useEffect(()=>{
-    
-        getItem
-        .then ((data) => {
-            console.log("Productos: ")
-            console.log(data)
-            setlistProducts(data)
+            }
         })
-        .catch((error)=>{
-            console.log("la llamada fallo" + error)
-        })
-        .finally ((data)=>{
-    
-            console.log("finally")
-        })
-    
-    },[])
+    }
 
-    return(
-        <>
-        <div className='list-productos'>
-        <h2 className="title-productos">{section}</h2>
+    return (
 
-        {listProducts.map((product)=> {
-        return <ItemDetail key={product.id} detailProducto={product}/>  
-        
-        
-        })}   
+        <div>
+
+            <ItemDetail data={productData} />
 
 
         </div>
-    
-        </>
-    )
-    }
 
+    )
+}
 
 export default ItemDetailContainer
