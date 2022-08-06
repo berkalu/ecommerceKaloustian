@@ -40,15 +40,16 @@
             font-size: 12px;
         }
         .comprar2 {
+            color: black;
             margin-top: 10px;
-            width: 60%;
             cursor: pointer;
             &:hover {
                 background-color: #429595;
                 transition:all .9s ease-in-out;
         }
-        h2 {
-            font-size: 25px;
+        a {
+            text-decoration: none;
+            color: black;
         }
     }
             

@@ -4,7 +4,7 @@ import products from "../../utils/product.mock"
 import { useParams } from 'react-router-dom'
 import ItemDetail from "../ItemDetail/ItemDetail"
 
-const ItemDetailContainer = ({}) => {
+const ItemDetailContainer = () => {
 
     const { id } = useParams()
     const [productData, setProductData] = useState([])

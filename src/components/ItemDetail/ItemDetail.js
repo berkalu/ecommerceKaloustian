@@ -1,22 +1,15 @@
 import '../ItemDetail/ItemDetail.scss'
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
 
 
 const ItemDetail = ({ data }) => {
-
+    const [cantidadSelected, setCantidadSelected] = useState(0)
     const {title, description, image, image2,image3, image4, category, price, stock } = data
 
     const sixPagos = (price / 12);
     const six6Pagos = sixPagos.toFixed(2);
-
-    const onSubmitDetalle = () => {
-        console.log("Tocaste Boton   detalle producto")
-    }
-
-    const onSubmitComprar = () => {
-        console.log("Tocaste COMPRAR")
-    }
 
     return (
         <div className="item-product-detail">
@@ -34,11 +27,11 @@ const ItemDetail = ({ data }) => {
                     <p className='description2' >{description}</p>
                     <span className="precio2">$ {price}</span>
                     <p className='pago' >Pagalo en 6 cuotas de USD$ {six6Pagos}</p>
-                    <ItemCount stock={stock} initial={1} />
-                    <p className='stock2'>stock disponible: {stock}</p>
-                    <Link to={`/carrito`}> 
-                        <button className="comprar2" onClick={onSubmitComprar}>Realizar Compra</button> 
-                    </Link>     
+                    <p className='stock2'>Stock Disponible: {stock}</p>
+                    {console.log("catidadSelected: ", cantidadSelected)}
+                    {
+                        cantidadSelected > 0 ? <button className="comprar2"><Link to="/cart">TERMINAR COMPRA</Link></button> : <ItemCount setCantidadSelected={setCantidadSelected} stock={stock} initial={1}/>
+                    }    
             </div>
         </div>
 
