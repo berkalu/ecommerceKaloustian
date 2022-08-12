@@ -6,13 +6,13 @@ import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({ secciones }) => {
 
-    const { categoryid } = useParams()
+    const { category } = useParams()
     const [listProducts, setlistProducts] = useState([])
-    const filterByCategory = products.filter((producto) => producto.category == categoryid)
+    const filterByCategory = products.filter((producto) => producto.category === category)
 
     const getItem = new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (categoryid === 'Notebook' || categoryid === 'Placa') {
+            if (category) {
                 resolve(filterByCategory)
 
             }
@@ -44,7 +44,7 @@ const ItemListContainer = ({ secciones }) => {
 
 
 
-    }, [categoryid])
+    }, [category])
 
 
 
@@ -55,7 +55,7 @@ const ItemListContainer = ({ secciones }) => {
         <>
             <div className='container'>
                 <h2 className='secciones'>{secciones}</h2>
-                <h3 className='seccionesid hidden'>{categoryid}</h3>
+                <h3 className='seccionesid hidden'>{category}</h3>
                 <ItemList listProducts={listProducts} />
 
 

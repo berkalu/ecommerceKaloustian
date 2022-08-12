@@ -8,15 +8,13 @@ import About from './pages/About';
 import Detail from './pages/Detail';
 import Products from './pages/Products';
 import Checkout from './pages/Checkout';
+import CartProvider from './context/CartContext'
 
 function App() {
   return (
+    <CartProvider >
     <BrowserRouter>
       <div className="containerPrin">
-
-
-
-
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,20 +22,14 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/productos/" element={<Products />} />
           <Route path="/productos/:id" element={<Detail />} />
-          <Route path="/categorias/:categoryid" element={<ItemListContainer />} />
+          <Route path="/categorias/:category" element={<ItemListContainer />} />
           <Route path="/cart" element={<Checkout />} />
           <Route path="*" element={<h1>ERROR 404 - PAGINA NO ENCONTRADA</h1>} />
         </Routes>
-
-
-
-
-
-
-        {/* <footer> FOOTER</footer> */}
       </div>
 
     </BrowserRouter>
+    </CartProvider>
   );
 }
 

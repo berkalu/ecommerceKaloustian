@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const ItemDetail = ({ data }) => {
     const [cantidadSelected, setCantidadSelected] = useState(0)
-    const {title, description, image, image2,image3, image4, category, price, stock } = data
+    const {title, description, image, image2,image3, image4, category, price, stock, cant } = data
 
     const sixPagos = (price / 12);
     const six6Pagos = sixPagos.toFixed(2);
@@ -25,12 +25,12 @@ const ItemDetail = ({ data }) => {
                     <span className="categoria2">{category}</span>
                     <h1>{title}</h1>
                     <p className='description2' >{description}</p>
-                    <span className="precio2">$ {price}</span>
-                    <p className='pago' >Pagalo en 6 cuotas de USD$ {six6Pagos}</p>
+                    <span className="precio2">USD$ {price}</span>
+                    <p className='pago' >6 cuotas sin interes de USD$ {six6Pagos}</p>
                     <p className='stock2'>Stock Disponible: {stock}</p>
-                    {console.log("catidadSelected: ", cantidadSelected)}
+                    {console.log("cantidadSelected: ", cant)}
                     {
-                        cantidadSelected > 0 ? <button className="comprar2"><Link to="/cart">TERMINAR COMPRA</Link></button> : <ItemCount setCantidadSelected={setCantidadSelected} stock={stock} initial={1}/>
+                        cantidadSelected > 0 ? <button className="comprar2"><Link to="/cart">TERMINAR COMPRA</Link></button> : <ItemCount setCantidadSelected={setCantidadSelected} stock={stock} initial={1} productData={data}/>
                     }    
             </div>
         </div>

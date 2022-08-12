@@ -1,9 +1,10 @@
 import './ItemProduct.scss'
 import { Link } from 'react-router-dom'
 
+
 const ItemProduct = ({ data }) => {
 
-    const { id, title, image, category, price } = data
+    const { id, title, image, category, price, stock } = data
 
 
     console.log("data:", id)
@@ -15,7 +16,6 @@ const ItemProduct = ({ data }) => {
 
     return (
         <div className='contenedor'>
-            {/* <Detail data={productData} /> */}
             <Link to={`/productos/${id}`}>
 
                 <div className="item-product">
