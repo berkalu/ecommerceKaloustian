@@ -10,20 +10,13 @@ const ItemDetailContainer = () => {
     const [productData, setProductData] = useState([])
 
     useEffect(() => {
-        filterById()
-    }, [])
+        const foundProduct = products.find((element) => element.id.toString() === id);
+        if (foundProduct) {
+            setProductData(foundProduct);
+        }
+      }, [id]);
 
-
-    const filterById = () => {
-
-        products.some((product) => {
-            if (product.id == id) {
-
-                setProductData(product)
-
-            }
-        })
-    }
+    
 
     return (
 

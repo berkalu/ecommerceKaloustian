@@ -1,38 +1,28 @@
 import { createContext, useState } from "react";
 
-const CartContext = createContext()
+export const CartContext = createContext()
 
 
 const CartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState([])
 
-    const addProductToCart = (product, cant) => {
-    if(cartProducts.some(is => is.id == product.id)){
-
-        let finded = cartProducts.findIndex(is => is.id == product.id)
-        let itemFinded = cartProducts[finded]
-        itemFinded.cant =    itemFinded.cant + cant
-
-        const actCarrito = [...cartProducts]
-        actCarrito.splice(finded,1,itemFinded)
-
-        setCartProducts([...actCarrito])
-        
-    
-    } else {
-
-        let itemFinal = {...product,cant}
-        setCartProducts([...cartProducts, itemFinal ]);
-    }
-}
+    const addProductToCart = (product) => {
+        const productIndex = cartProducts.findIndex(
+            (productInCart) => productInCart.id === product.id,
+        );
+        if (productIndex === -1) {
+            setCartProducts([...cartProducts, product]);
+        } else {
+            const cartCopy = [...cartProducts];
+            cartCopy[productIndex].counter =
+            cartCopy[productIndex].counter + product.counter;
+            setCartProducts(cartCopy);
+        }
+};
 
     const removeProductFromCart = (id) => {
-        const actCarrito = [...cartProducts];
-        let index = actCarrito.findIndex(first => first.id === id);
-        
-        actCarrito.splice( index, 1 );
-
-        setCartProducts([...actCarrito]);
+        const newCart = cartProducts.filter((product) => product.id !== id);
+    setCartProducts(newCart);
         
     }
 
@@ -57,5 +47,3 @@ const CartProvider = ({children}) => {
 }
 
 export default CartProvider
-
-export { CartContext }

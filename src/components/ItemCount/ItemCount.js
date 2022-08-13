@@ -4,25 +4,19 @@ import './ItemCount.scss'
 import { CartContext } from '../../context/CartContext';
 
 
-const ItemCount = ({cantidadSelected, setCantidadSelected, stock, initial, productData }) => {
+const ItemCount = ({setCantidadSelected, stock, initial, productData }) => {
     const { addProductToCart} = useContext(CartContext)
-    const [counter, setCounter] = useState(initial);
-    const cant = cantidadSelected;
-    const addProduct = (num) => {
-        setCounter(counter + num);
-    };
-    const onAdd = () => {
-        console.log("agregar al carrito", productData)
-        addProductToCart(productData, counter)
-        setCantidadSelected(counter)
-    }
+    const [counter, setCounter] = useState(1);
+
 
     return (
         <div className="contProductos">
             <div className='contContador'>
                 <button
                     className="contador"
-                    onClick={() => addProduct(-1)}
+                    onClick={() => {
+                        if (counter > 1) setCounter(counter - 1);
+                    }}
                     disabled={counter === initial}
                 >
                     -
@@ -30,7 +24,9 @@ const ItemCount = ({cantidadSelected, setCantidadSelected, stock, initial, produ
                 <span className="counter">{counter}</span>
                 <button
                     className="contador"
-                    onClick={() => addProduct(+1)}
+                    onClick={() => {
+                        if (counter < stock) setCounter(counter + 1);
+                    }}
                     disabled={counter === stock}
                 >
                     +
@@ -39,7 +35,11 @@ const ItemCount = ({cantidadSelected, setCantidadSelected, stock, initial, produ
                 
                 <button
                 className="comprar2"
-                onClick={() => onAdd(counter)}
+                onClick={() => {
+                    addProductToCart({ ...productData, counter });
+                    setCounter(1);
+                    setCantidadSelected(counter)
+                }}
                 disabled={stock === 0 ? true : null}
             >
                 AGREGAR AL CARRITO
@@ -47,6 +47,6 @@ const ItemCount = ({cantidadSelected, setCantidadSelected, stock, initial, produ
         </div>
         
     );
-  };
+};
 
 export default ItemCount;

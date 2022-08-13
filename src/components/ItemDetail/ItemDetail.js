@@ -6,10 +6,13 @@ import { useState } from 'react';
 
 const ItemDetail = ({ data }) => {
     const [cantidadSelected, setCantidadSelected] = useState(0)
-    const {title, description, image, image2,image3, image4, category, price, stock, cant } = data
-
-    const sixPagos = (price / 12);
+    const {title, description, image, image2,image3, image4, category, price, stock } = data
+    const sixPagos = (price / 6);
     const six6Pagos = sixPagos.toFixed(2);
+    const handleClick = (e) => {
+        e.preventDefault();
+        return console.log('stop');
+    };
 
     return (
         <div className="item-product-detail">
@@ -28,10 +31,9 @@ const ItemDetail = ({ data }) => {
                     <span className="precio2">USD$ {price}</span>
                     <p className='pago' >6 cuotas sin interes de USD$ {six6Pagos}</p>
                     <p className='stock2'>Stock Disponible: {stock}</p>
-                    {console.log("cantidadSelected: ", cant)}
-                    {
-                        cantidadSelected > 0 ? <button className="comprar2"><Link to="/cart">TERMINAR COMPRA</Link></button> : <ItemCount setCantidadSelected={setCantidadSelected} stock={stock} initial={1} productData={data}/>
-                    }    
+                    {console.log("cantidadSelected: ", cantidadSelected)}
+                    <ItemCount setCantidadSelected={setCantidadSelected} stock={stock} initial={1} productData={data}/>
+                    <button className="comprar2"><Link to="/productos/">SEGUIR COMPRANDO</Link></button>    
             </div>
         </div>
 
