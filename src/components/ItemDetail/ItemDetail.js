@@ -4,22 +4,18 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react';
 
 
-const ItemDetail = ({ data }) => {
+const ItemDetail = ({ data, setShowModal }) => {
     const [cantidadSelected, setCantidadSelected] = useState(0)
     const {title, description, image, image2,image3, image4, category, price, stock } = data
     const sixPagos = (price / 6);
     const six6Pagos = sixPagos.toFixed(2);
-    const handleClick = (e) => {
-        e.preventDefault();
-        return console.log('stop');
-    };
 
     return (
         <div className="item-product-detail">
             <div className='img-small'>
-                <img className='img2' src={`../assets/${image2}`} alt="Imagen producto" />
-                <img className='img2' src={`../assets/${image3}`} alt="Imagen producto" />
-                <img className='img2' src={`../assets/${image4}`} alt="Imagen producto" />
+                <img className='img2' src={`../assets/${image2}`} alt="Imagen producto" onClick={() => setShowModal(true)} />
+                <img className='img2' src={`../assets/${image3}`} alt="Imagen producto" onClick={() => setShowModal(true)} />
+                <img className='img2' src={`../assets/${image4}`} alt="Imagen producto" onClick={() => setShowModal(true)} />
             </div>
             <div className="img-big">
                 <img className='img1' src={`../assets/${image}`} alt="Imagen producto" />

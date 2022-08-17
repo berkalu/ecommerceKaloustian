@@ -1,20 +1,11 @@
-// import { Modal } from "bootstrap";
+import './Modal.scss'
+import CloseIcon from '@mui/icons-material/Close';
 
-const Modal = ({title, children}) => {
-
-    // onClick={cerrarModal}
-
-    // const cerrarElModal = document.getElementsByClassName('modal-custom');
-    // function cerrarModal () {
-      
-    //     cerrarElModal.removeClass('modal-custom');
-    //     cerrarElModal.addClass('modal-custom2');
-    //     alert("jaja");
-    // }
+const Modal = ({title, close, children}) => {
     return(
         <div className="modal-custom">
-            <button>X</button>
             <h2>{title}</h2>
+            <CloseIcon onClick={() => close(false)}/>
             {children}
         </div>
     )

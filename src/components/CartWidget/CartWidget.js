@@ -4,12 +4,13 @@ import Menu from '@mui/material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom'
+import './CartWidget.scss'
 
 
 const CartWidget = () => {
     const [anchorEl, setAnchorEl] = useState(null);
 
-    const { cartProducts, clear, removeProductFromCart } = useContext(CartContext)
+    const { cartProducts, clear, removeProductFromCart, totalProducts } = useContext(CartContext)
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -18,8 +19,10 @@ const CartWidget = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
     return(
         <div className='cart-widget'>
+            {cartProducts.length !== 0 && <p>{totalProducts}</p>}
             <ShoppingCartIcon 
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
@@ -51,15 +54,15 @@ const CartWidget = () => {
                             </div>
                             <div className='cart-product__action'>
                                 <DeleteIcon onClick={()=>removeProductFromCart(product.id)} />
-                            </div>
-                            <button className="comprar2"><Link to="/cart">TERMINAR COMPRA</Link></button> 
-                            <button className="comprar2"><Link to="/productos/">SEGUIR COMPRANDO</Link></button> 
-                            
+                            </div>                             
                         </div>
                         
                     )
                 })}
-                <div className='clearbtn'><button className='clear' onClick={() => clear()}>LIMPIAR CARRITO</button></div>
+                <div className='cart-buttons'>
+                <button className="comprar2"><Link to="/cart">TERMINAR COMPRA</Link></button>
+                <button className='clearbtn' onClick={() => clear()}>LIMPIAR CARRITO</button>
+                </div>
             </Menu>
         </div>
     )

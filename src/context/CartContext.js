@@ -5,13 +5,14 @@ export const CartContext = createContext()
 
 const CartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState([])
+    const [totalProducts, setTotalProducts] = useState(0)
 
     const addProductToCart = (product) => {
         const productIndex = cartProducts.findIndex(
-            (productInCart) => productInCart.id === product.id,
-        );
+            (productInCart) => productInCart.id === product.id,);
         if (productIndex === -1) {
             setCartProducts([...cartProducts, product]);
+            setTotalProducts(totalProducts + product.counter)
         } else {
             const cartCopy = [...cartProducts];
             cartCopy[productIndex].counter =
@@ -22,12 +23,14 @@ const CartProvider = ({children}) => {
 
     const removeProductFromCart = (id) => {
         const newCart = cartProducts.filter((product) => product.id !== id);
-    setCartProducts(newCart);
+        setCartProducts(newCart);
+        setTotalProducts();
         
     }
 
     const clear = () => {
         setCartProducts([])
+        setTotalProducts(0)
     }
 
     console.log("cartProducts: ", cartProducts)
@@ -36,7 +39,9 @@ const CartProvider = ({children}) => {
         setCartProducts,
         addProductToCart,
         clear,
-        removeProductFromCart
+        removeProductFromCart,
+        totalProducts
+
     }
 
     return(
