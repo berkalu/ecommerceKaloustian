@@ -7,25 +7,25 @@ const CartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState([])
     const [totalProducts, setTotalProducts] = useState(0)
 
-    const addProductToCart = (product) => {
-        const productIndex = cartProducts.findIndex(
-            (productInCart) => productInCart.id === product.id,);
-        if (productIndex === -1) {
-            setCartProducts([...cartProducts, product]);
-            setTotalProducts(totalProducts + product.counter)
-        } else {
-            const cartCopy = [...cartProducts];
-            cartCopy[productIndex].counter =
-            cartCopy[productIndex].counter + product.counter;
-            setCartProducts(cartCopy);
-        }
+        const addProductToCart = (product) => {
+            if (!cartProducts.some(el=>el.id == product.id)){
+                setCartProducts([...cartProducts, product])
+                setTotalProducts(totalProducts + product.counter)
+            }
+            else{
+                const newCart = cartProducts.map(el=>{
+                    if(el.id == product.id){
+                        el.counter = el.counter + product.counter;
+                    }
+                    return el;
+                });
+                setCartProducts(newCart);
+            }
 };
 
     const removeProductFromCart = (id) => {
         const newCart = cartProducts.filter((product) => product.id !== id);
         setCartProducts(newCart);
-        setTotalProducts();
-        
     }
 
     const clear = () => {

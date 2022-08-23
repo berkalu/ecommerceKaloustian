@@ -29,7 +29,7 @@ export const products = [
     {   
         id: 3,
         title:"Notebook HP Victus 16", 
-        price:900, 
+        price:1900, 
         image:'../assets/hp.jpg',
         image2:'../assets/hp2.jpg',
         image3:'../assets/hp3.jpg',

@@ -4,6 +4,9 @@ import products from "../../utils/product.mock"
 import { useParams } from 'react-router-dom'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import Modal from '../Modal/Modal'
+import db from '../../fireBaseConfig'
+import { doc, getDoc } from "firebase/firestore"
+import { async } from '@firebase/util'
 
 const ItemDetailContainer = () => {
 
@@ -14,13 +17,20 @@ const ItemDetailContainer = () => {
     
 
     useEffect(() => {
-        const foundProduct = products.find((element) => element.id.toString() === id);
-        if (foundProduct) {
-            setProductData(foundProduct);
-        }
+            getProduct()
+            .then((res) => {
+                setProductData(res)
+            })
     }, [id]);
 
-    
+    const getProduct = async () => {
+        const docRef = doc(db, 'products', id)
+        const docSnapshot = await getDoc(docRef)
+        let product = docSnapshot.data()
+        product.id = docSnapshot.id
+        return product
+
+    }
 
     return (
 
@@ -41,5 +51,6 @@ const ItemDetailContainer = () => {
 
     )
 }
+
 
 export default ItemDetailContainer

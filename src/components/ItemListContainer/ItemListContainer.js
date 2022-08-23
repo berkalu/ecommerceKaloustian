@@ -3,6 +3,8 @@ import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
 import products from "../../utils/product.mock"
 import { useParams } from 'react-router-dom'
+import { collection, doc, getDocs } from 'firebase/firestore'
+import db from '../../fireBaseConfig'
 
 const ItemListContainer = ({ secciones }) => {
 
@@ -10,37 +12,51 @@ const ItemListContainer = ({ secciones }) => {
     const [listProducts, setlistProducts] = useState([])
     const filterByCategory = products.filter((producto) => producto.category === category)
 
-    const getItem = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (category) {
-                resolve(filterByCategory)
+    // const getItem = new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //         if (category) {
+    //             resolve(filterByCategory)
 
-            }
-            else {
-                resolve(products)
-            }
-        }, 2000);
+    //         }
+    //         else {
+    //             resolve(products)
+    //         }
+    //     }, 2000);
 
-    })
+    // })
+
+    const getItem = async () => {
+        const productCollection = collection(db, 'products')
+        const productSnapshot = await getDocs(productCollection)
+        const productList = productSnapshot.docs.map( (doc) => {
+            let product = doc.data()
+            product.id = doc.id
+            return product
+        })
+        return productList
+    }
 
     useEffect(() => {
 
-        getItem
-            .then((data) => {
-                console.log("Productos: ")
-                console.log(data)
+        getItem()
+        .then ((res) => {
+            setlistProducts(res)
+        })      
+            // .then((data) => {
+            //     console.log("Productos: ")
+            //     console.log(data)
 
 
-                setlistProducts(data)
-            })
-            .catch((error) => {
-                console.log("la llamada fallo" + error)
-            })
-            .finally((data) => {
+            //     setlistProducts(data)
+            // })
+            // .catch((error) => {
+            //     console.log("la llamada fallo" + error)
+            // })
+            // .finally((data) => {
 
-                console.log("finally")
+            //     console.log("finally")
 
-            })
+            // })
 
 
 
