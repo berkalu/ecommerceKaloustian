@@ -3,64 +3,36 @@ import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
 import products from "../../utils/product.mock"
 import { useParams } from 'react-router-dom'
-import { collection, doc, getDocs } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import db from '../../fireBaseConfig'
 
 const ItemListContainer = ({ secciones }) => {
 
     const { category } = useParams()
     const [listProducts, setlistProducts] = useState([])
-    const filterByCategory = products.filter((producto) => producto.category === category)
-
-    // const getItem = new Promise((resolve, reject) => {
-    //     setTimeout(() => {
-    //         if (category) {
-    //             resolve(filterByCategory)
-
-    //         }
-    //         else {
-    //             resolve(products)
-    //         }
-    //     }, 2000);
-
-    // })
-
-    const getItem = async () => {
-        const productCollection = collection(db, 'products')
-        const productSnapshot = await getDocs(productCollection)
-        const productList = productSnapshot.docs.map( (doc) => {
-            let product = doc.data()
-            product.id = doc.id
-            return product
-        })
-        return productList
-    }
 
     useEffect(() => {
 
-        getItem()
-        .then ((res) => {
-            setlistProducts(res)
-        })      
-            // .then((data) => {
-            //     console.log("Productos: ")
-            //     console.log(data)
-
-
-            //     setlistProducts(data)
-            // })
-            // .catch((error) => {
-            //     console.log("la llamada fallo" + error)
-            // })
-            // .finally((data) => {
-
-            //     console.log("finally")
-
-            // })
-
-
-
-    }, [category])
+        const qCollection = collection(db,"products") 
+       
+       if (category){
+           const qFilter= query(qCollection, where("category" , "==", category))
+           getDocs(qFilter)
+           .then(res =>setlistProducts (res.docs.map((traer)=>{
+                    let product = traer.data()
+                    product.id = traer.id
+                    return product
+                })))
+       }else{
+       getDocs(qCollection)
+       .then(res =>setlistProducts (res.docs.map((traer)=>{
+        let product = traer.data()
+        product.id = traer.id
+        return product
+    })))
+        
+       }
+   },[category])
 
 
 
