@@ -7,10 +7,14 @@ import { Link } from 'react-router-dom'
 import './CartWidget.scss'
 
 
+
 const CartWidget = () => {
     const [anchorEl, setAnchorEl] = useState(null);
-
     const { cartProducts, clear, removeProductFromCart, totalProducts } = useContext(CartContext)
+
+    const getTotalItems = (array) =>{
+        return array.reduce((acum, currentValue)=> acum + currentValue.counter ,0);
+    }
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -20,9 +24,10 @@ const CartWidget = () => {
         setAnchorEl(null);
     };
 
+
     return(
         <div className='cart-widget'>
-            {cartProducts.length !== 0 && <p>{totalProducts}</p>}
+            {cartProducts.length !== 0 && <p>{getTotalItems(cartProducts)}</p>}
             <ShoppingCartIcon 
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
@@ -60,8 +65,8 @@ const CartWidget = () => {
                     )
                 })}
                 <div className='cart-buttons'>
-                <button className="comprar2"><Link to="/cart">TERMINAR COMPRA</Link></button>
-                <button className='clearbtn' onClick={() => clear()}>LIMPIAR CARRITO</button>
+                    <button className="comprar3"><Link to="/cart">TERMINAR COMPRA</Link></button>
+                    <button className='clearbtn' onClick={() => clear()}>LIMPIAR CARRITO</button>
                 </div>
             </Menu>
         </div>

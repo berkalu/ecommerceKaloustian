@@ -8,10 +8,7 @@ const ItemProduct = ({ data }) => {
 
     const sixPagos = (price / 6);
     const six6Pagos = sixPagos.toFixed(2);
-    const stopProp = (e) => {
-        console.log("stop")
-        e.stopPropagation()
-    }
+
 
     return (
         <div className='contenedor'>
@@ -26,7 +23,7 @@ const ItemProduct = ({ data }) => {
                         <p className='pago' >pagalo en 6 cuotas de USD$ {six6Pagos}</p>
 
                         <div>
-                            <button onClick={stopProp} className="detalle">DETALLE PRODUCTO</button>
+                            <button className="detalle">DETALLE PRODUCTO</button>
                         </div>
                     </div>
                 </div>

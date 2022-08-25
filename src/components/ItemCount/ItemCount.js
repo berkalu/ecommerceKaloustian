@@ -6,9 +6,8 @@ import { CartContext } from '../../context/CartContext';
 
 const ItemCount = ({setCantidadSelected, stock, initial, productData }) => {
     const { addProductToCart} = useContext(CartContext)
-    const [counter, setCounter] = useState(1);
+    const [counter, setCounter] = useState(initial);
     
-
     return (
         <div className="contProductos">
             <div className='contContador'>
@@ -36,7 +35,7 @@ const ItemCount = ({setCantidadSelected, stock, initial, productData }) => {
                 <button
                 className="comprar2"
                 onClick={() => {
-                    addProductToCart({ ...productData, counter });
+                    addProductToCart({...productData, counter });
                     setCounter(1);
                     setCantidadSelected(counter)
                 }}

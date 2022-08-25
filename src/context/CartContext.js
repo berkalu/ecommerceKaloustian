@@ -5,23 +5,25 @@ export const CartContext = createContext()
 
 const CartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState([])
-    const [totalProducts, setTotalProducts] = useState(0)
 
-        const addProductToCart = (product) => {
-            if (!cartProducts.some(el=>el.id == product.id)){
-                setCartProducts([...cartProducts, product])
-                setTotalProducts(totalProducts + product.counter)
-            }
-            else{
-                const newCart = cartProducts.map(el=>{
-                    if(el.id == product.id){
-                        el.counter = el.counter + product.counter;
-                    }
-                    return el;
-                });
-                setCartProducts(newCart);
-            }
-};
+    const addProductToCart = (item, qty) => {
+        const newItem = {...item, qty};
+        if (cartProducts.some(product=> product.id == newItem.id)){       
+            console.warn('ya esta')
+            const newCart = cartProducts.map( product =>{
+                if(product.id == newItem.id){
+                    product.qty = product.qty + newItem.qty;
+                }
+                return product;
+            });
+            setCartProducts(newCart);            
+
+        }        
+        else{        
+            setCartProducts([...cartProducts, newItem]);
+        }        
+    }
+
 
     const removeProductFromCart = (id) => {
         const newCart = cartProducts.filter((product) => product.id !== id);
@@ -30,7 +32,6 @@ const CartProvider = ({children}) => {
 
     const clear = () => {
         setCartProducts([])
-        setTotalProducts(0)
     }
 
     console.log("cartProducts: ", cartProducts)
@@ -40,8 +41,6 @@ const CartProvider = ({children}) => {
         addProductToCart,
         clear,
         removeProductFromCart,
-        totalProducts
-
     }
 
     return(

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
-import products from "../../utils/product.mock"
 import { useParams } from 'react-router-dom'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import db from '../../fireBaseConfig'
@@ -16,7 +15,7 @@ const ItemListContainer = ({ secciones }) => {
         const qCollection = collection(db,"products") 
        
        if (category){
-           const qFilter= query(qCollection, where("category" , "==", category))
+           const qFilter = query(qCollection, where("category" , "==", category))
            getDocs(qFilter)
            .then(res =>setlistProducts (res.docs.map((traer)=>{
                     let product = traer.data()
@@ -33,10 +32,6 @@ const ItemListContainer = ({ secciones }) => {
         
        }
    },[category])
-
-
-
-
 
 
     return (
