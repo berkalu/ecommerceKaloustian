@@ -1,26 +1,22 @@
+.cart {    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: white;
+    border-radius: 100%;
+    margin: auto;
 .cart-widget{
     display: flex;
     align-items: center;
-#basic-menu {
-    margin-right: 80px;
-    margin-top: 10px;
-    .item-cart-product {
-        display: flex;
-        max-width: 600px;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 10px;
-        text-align: center;
-        img {
-            width: 25%;
-        }
-        
-        .cart-product__details {
-            width: 35%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
+    justify-content: center;
+    text-align: center;
+}
+}
+
+
+
+#basic-menu {  
+    ul {
         .cart-product__action {
             width: 10%;
             display: flex;
@@ -29,25 +25,49 @@
         }
     }
     }
-}
+
 
 .cart-buttons {
     margin: auto;
     margin-top: 10px;
     display: flex;
-
+    justify-content: center;
     .comprar3 {
         margin-right: 20px;
-        margin-left: 150px;
-        color: black;
-            cursor: pointer;
-            &:hover {
-                background-color: #429595;
-                transition:all .9s ease-in-out;
-                }
+        background-color: #429595;
+        cursor: pointer;
             a {
+                color: black;
             text-decoration: none;
-            color: black;
-            }        
+            }      
+    }
+    .clearbtn {
+        background-color: red;
+        cursor: pointer;
+    }  
+}
+
+.cart-product__details {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        padding: 10px;
+    }
+}
+
+.item-cart-product {
+    display: flex;
+    width: 700px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+    img {
+        padding: 5px;
+        width: 25%;
+        border-radius: 10%;
     }
 }

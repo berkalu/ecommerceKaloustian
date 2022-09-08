@@ -7,8 +7,8 @@ const Products = () => {
 return (
 
 
-<section>
-      <ItemListContainer secciones="PRODUCTOS" />
+      <section>
+            <ItemListContainer secciones="PRODUCTOS" />
       </section>
 
 

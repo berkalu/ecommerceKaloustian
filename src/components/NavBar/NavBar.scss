@@ -29,6 +29,7 @@
         display: flex;
         margin: auto;
         align-items: center;
+        justify-content: center;
         cursor: pointer;
     }
     ul {
@@ -56,43 +57,5 @@
         }        
     } 
 }
-#basic-menu {
-    margin-right: 80px;
-    margin-top: 10px;
-.cart {
-.cartwidget {
-    display: flex;
-    align-items: center;
-}
-}
-.item-cart-product {
-    display: flex;
-    max-width: 600px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    text-align: center;
-    img {
-        width: 25%;
-    }
-    
-    .cart-product__details {
-        width: 35%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .cart-product__action {
-        width: 10%;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    .cart-buttons {
-        margin: auto;
-        display: flex;
-    }
 
-}
-}
 

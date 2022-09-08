@@ -10,18 +10,23 @@
         display: flex;
         flex-direction: row;
         border: 1px solid black;
-        width: 60%;
+        width: 55%;
         margin: auto;
         margin-bottom: 30px;
         background-color: lightgray;
         padding: 15px;
         img {
-            width: 40%;
+            width: 30%;
+            height: 30%;
     }
     .item-product-checkout2 {
+        width: 80%;
         padding: 15px;
         margin: auto;
         font-size: 10px;
+        .btn2, .description2, .counter2, h1 {
+            margin-bottom: 5px;
+        }
     }
     .buttons-checkout {
         align-items: center;
@@ -31,19 +36,7 @@
             background-color: red;
             margin-top: 10px;
             margin-right: 10px;
-            cursor: pointer;
-            &:hover {
-                background-color: #429595;
-                transition:all .9s ease-in-out;
-                }
-            a {
-            text-decoration: none;
-            color: black;
-            }        
-        }
-        .comprar2 {
-            color: black;
-            margin-top: 10px;
+            font-size: 15px;
             cursor: pointer;
             &:hover {
                 background-color: #429595;
@@ -84,6 +77,17 @@
             margin: auto;
             cursor: pointer;
             width: 30%;
+            background-color: #429595;
+            a {
+            text-decoration: none;
+            color: black;
+            }        
+        }
+        .comprar3 {
+            color: black;
+            margin-top: 10px;
+            font-size: 15px;
+            cursor: pointer;
             &:hover {
                 background-color: #429595;
                 transition:all .9s ease-in-out;

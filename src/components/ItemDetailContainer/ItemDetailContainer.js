@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import '../ItemListContainer/ItemListContainer.scss'
 import { useParams } from 'react-router-dom'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import Modal from '../Modal/Modal'
 import db from '../../fireBaseConfig'
 import { doc, getDoc } from "firebase/firestore"
+import './ItemDetailContainer.scss'
 
 const ItemDetailContainer = () => {
 
@@ -34,9 +34,17 @@ const ItemDetailContainer = () => {
 
     return (
 
-        <div>
-            <div className={`container-item-detail ${showModal} ${showModal2} ${showModal3} ${showModal4}`}></div>
+        
+        
+        <div className='detContainer'>
+            
+            {
+            productData.image ?
             <ItemDetail data={productData} setShowModal={setShowModal} setShowModal2={setShowModal2} setShowModal3={setShowModal3} setShowModal4={setShowModal4}/>
+            :
+            <div className='cargando'><p>CARGANDO DETALLES...</p></div>
+            }
+            <div className={`container-item-detail ${showModal} ${showModal2} ${showModal3} ${showModal4}`}></div>
             {showModal && (
                 <Modal title="Imagen Producto" close={setShowModal}>
                     <img src={`/assets/${productData.image}`} alt="imgprod"/>
@@ -56,11 +64,10 @@ const ItemDetailContainer = () => {
                 <Modal title="Imagen Producto" close={setShowModal4}>
                     <img src={`/assets/${productData.image4}`} alt="imgprod4"/>
                 </Modal>
-            )}
-
-
+            )}               
         </div>
-        
+
+
 
     )
 }

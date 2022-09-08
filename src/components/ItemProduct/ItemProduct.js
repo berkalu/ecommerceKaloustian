@@ -1,10 +1,12 @@
 import './ItemProduct.scss'
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import { Link } from 'react-router-dom'
 
 
 const ItemProduct = ({ data }) => {
 
-    const { id, title, image, category, price } = data
+    const { id, title, image, price } = data
 
     const sixPagos = (price / 6);
     const six6Pagos = sixPagos.toFixed(2);
@@ -17,12 +19,11 @@ const ItemProduct = ({ data }) => {
                 <div className="item-product">
                     <img src={`../assets/${image}`} alt="Imagen producto" />
                     <div className="item-product2" >
-                        <h4 className="categoria">{category}</h4>
-                        <h1>{title}</h1>
-                        <span className="precio">USD$ {price}</span>
-                        <p className='pago' >pagalo en 6 cuotas de USD$ {six6Pagos}</p>
-
+                        <h5>{title}</h5>
+                        <p className='itemIcon'><CreditCardIcon /> 6 Cuotas sin interes de USD$ {six6Pagos}</p>
+                        <p className='itemIcon'><DeliveryDiningIcon />Envio gratis a partir de USD$ 1000</p>
                         <div>
+                        <h6 className="precio">PRECIO: USD$ {price}</h6>
                             <button className="detalle">DETALLE PRODUCTO</button>
                         </div>
                     </div>

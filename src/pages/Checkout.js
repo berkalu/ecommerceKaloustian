@@ -9,8 +9,9 @@ import { collection, addDoc } from 'firebase/firestore'
 const Checkout = () => {
 
     const [shModal, setShModal] = useState(false)
-    const { cartProducts, removeProductFromCart } = useContext(CartContext)
-    const [success, setSuccess] = useState()
+    const { cartProducts, removeProductFromCart, clear } = useContext(CartContext)
+    const [success, setSuccess] = useState(false)
+    const [orderNumber, setOrderNumber] = useState(null);
 
     const getTotalPrice = (array) =>{
         return array.reduce((acum, currentValue)=> acum + (currentValue.price * currentValue.counter) ,0);
@@ -46,14 +47,16 @@ const Checkout = () => {
     }
 
     const submitData = (e) => {
-        e.preventDefault()
-        pushOrder({...order, buyer: formData})
+        e.preventDefault();
+        setSuccess(true);
+        pushOrder({...order, buyer: formData});
+        clear();
     }
 
     const pushOrder = async (newOrder) => {
         const collectionOrder = collection(db, 'ordenes')
         const orderDoc = await addDoc(collectionOrder, newOrder)
-        setSuccess(orderDoc.id)
+        setOrderNumber(orderDoc.id)
         console.log('ORDEN GENERADA', orderDoc)
     }
 
@@ -77,16 +80,12 @@ const Checkout = () => {
                             <div className="item-product-checkout">
                                 <img src={`../assets/${product.image}`} alt="Imagen producto" />
                                 <div className="item-product-checkout2" >
-                                    <h1>{product.title}</h1>
-                                    <p className='description2'>{product.description}</p>
-                                    <h3 className='counter2'>SELECCIONASTE {product.counter} UNIDAD/ES</h3>
-                                    <span className="btn2 btn btn-primary">COSTO POR UNIDAD: <b>USD$ {product.price}</b></span><br></br>
-                                    <h3 className='subtotal2'>TOTAL: USD$ {subtotal}</h3>
+                                    <h2>{product.title}</h2>
+                                    <h6 className='counter2'>SELECCIONASTE {product.counter} UNIDAD/ES</h6>
+                                    <h6 className="btn2">COSTO POR UNIDAD: <b>USD$ {product.price}</b></h6><br></br>
+                                    <h6 className='subtotal2'>TOTAL: USD$ {subtotal}</h6>
                                     <div className='buttons-checkout'>
                                         <button className="comprar1" onClick={() => removeProductFromCart(product.id)}>ELIMINAR</button>
-                                        <Link to={`/productos/${product.id}`}>
-                                        <button className="comprar2" >AGREGAR OTRO PRODUCTO</button>
-                                        </Link>
                                     </div>
 
                                 </div>
@@ -99,16 +98,24 @@ const Checkout = () => {
                 <div className='checkout'>
                     <p className='total2'>TOTAL A PAGAR: <b>USD$ {total}</b></p>
                     <button className="comprar2" onClick={() => setShModal(true) }> IR A PAGAR</button>
+                    <Link to={`/productos/`}>
+                        <button className="comprar3" >AGREGAR PRODUCTO</button>
+                    </Link>
                     <img className='pagos2' src={`../assets/tarjetas.png`} alt="Imagen tarjetas" />
                 </div>
                 {shModal && 
                 <Modal2 title="DATOS DE CONTACTO" close={() => setShModal()}>
                         {success ? <>
+                        {
+                        orderNumber ?
                         <div className='success'>  
                         <h2>SU ORDEN SE GENERO CORRECTAMENTE</h2>
-                        <h4> ID DE SU COMPRA: {success}</h4>
+                        <h4> ID DE SU COMPRA: {orderNumber}</h4>
                         <h5>RECIBIRA UN MAIL CON EL DETALLE DE SU COMPRA</h5>
-                        </div>    
+                        </div>
+                        :
+                        <p>PROCESANDO SU COMPRA...</p>
+                        }   
                         </> : <>
                             <form className='form-container' onSubmit={submitData}>
                                 <input 

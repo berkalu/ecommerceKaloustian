@@ -39,8 +39,13 @@ const ItemListContainer = ({ secciones }) => {
             <div className='container'>
                 <h2 className='secciones'>{secciones}</h2>
                 <h3 className='seccionesid hidden'>{category}</h3>
-                <ItemList listProducts={listProducts} />
+                {
+                listProducts.length ?
 
+                <ItemList listProducts={listProducts} />
+                :
+                <p>CARGANDO PRODUCTOS...</p>
+                }
 
             </div>
         </>

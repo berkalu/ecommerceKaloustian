@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react';
 
 
+
 const ItemDetail = ({ data, setShowModal, setShowModal2, setShowModal3, setShowModal4}) => {
     const {title, description, image, image2,image3, image4, category, price, stock } = data
     const [cantidadSelected, setCantidadSelected] = useState(0)
@@ -26,10 +27,9 @@ const ItemDetail = ({ data, setShowModal, setShowModal2, setShowModal3, setShowM
                     <h1>{title}</h1>
                     <p className='description2' >{description}</p>
                     <span className="precio2">USD$ {price}</span>
-                    <p className='pago' >6 cuotas sin interes de USD$ {six6Pagos}</p>
-                    <p className='stock2'>Stock Disponible: {stock}</p>
+                    <span className='stock2'>STOCK: {stock}</span>
                     {console.log("cantidadSelected: ", cantidadSelected)}
-                    { cantidadSelected > 0 ? <button className="comprar3"><Link to="/cart">TERMINAR COMPRA</Link></button> : <ItemCount setCantidadSelected={setCantidadSelected} stock={stock} initial={1} productData={data}/>}
+                    { cantidadSelected > 0 ? <button className="comprar2"><Link to="/cart">TERMINAR COMPRA</Link></button> : <ItemCount setCantidadSelected={setCantidadSelected} stock={stock} initial={1} productData={data}/>}
                     <button className="comprar2"><Link to="/productos/">SEGUIR COMPRANDO</Link></button>
             </div>
         </div>

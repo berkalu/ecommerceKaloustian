@@ -10,7 +10,7 @@ import './CartWidget.scss'
 
 const CartWidget = () => {
     const [anchorEl, setAnchorEl] = useState(null);
-    const { cartProducts, clear, removeProductFromCart, totalProducts } = useContext(CartContext)
+    const { cartProducts, clear, removeProductFromCart } = useContext(CartContext)
 
     const getTotalItems = (array) =>{
         return array.reduce((acum, currentValue)=> acum + currentValue.counter ,0);
@@ -51,11 +51,11 @@ const CartWidget = () => {
                                 <p>{product.title}</p>
                             </div>
                             <div className='cart-product__details'>
-                                <p>USD$ {product.price}</p>
+                                <p>PRECIO: USD$ {product.price}</p>
                             </div>
-                            <p className='cart-product__details'>Seleccionaste <b>{product.counter}</b> unidades.</p>
+                            <p className='cart-product__details'>SELECCIONASTE: <b>{ product.counter }</b> UNIDAD/ES.</p>
                             <div className='cart-product__details'>
-                                <p>TOTAL  USD$ {parseInt(product.price) * parseInt(product.counter)}</p>
+                                <p>TOTAL: USD$ {parseInt(product.price) * parseInt(product.counter)}</p>
                             </div>
                             <div className='cart-product__action'>
                                 <DeleteIcon onClick={()=>removeProductFromCart(product.id)} />
