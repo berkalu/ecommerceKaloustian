@@ -5,7 +5,7 @@ const Modal2 = ({title, close, children}) => {
     return(
         <div className="modal-custom2">
             <CloseIcon onClick={() => close(false)}/>
-            <h2>{title}</h2>
+            <h5>{title}</h5>
             {children}
         </div>
     )

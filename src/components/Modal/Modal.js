@@ -10,4 +10,5 @@ const Modal = ({title, close, children}) => {
     )
 }
 
+
 export default Modal

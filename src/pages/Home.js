@@ -2,21 +2,20 @@ import Carousel  from "../components/Bootstrap/homeCarousel"
 import React from 'react';
 import './Home.scss'
 import CardGroup  from "../components/Bootstrap/homeCards";
-import ItemListContainer from "../components/ItemListContainer/ItemListContainer"
+import ItemListContainer2 from "../components/ItemListContainer/ItemListContainer2"
 
 const home = () => {
 
 
 return (
 
-<>
-<section className="home">
-<Carousel/>
-<CardGroup/>
-</section>
-
-
-</>
+    <>
+        <section className="home">
+            <Carousel/>
+            <ItemListContainer2 secciones2="OFERTAS"/>
+            <CardGroup/>
+        </section>
+    </>
 )
 
 

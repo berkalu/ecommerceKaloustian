@@ -17,23 +17,22 @@ const ItemDetailContainer = () => {
     
 
     useEffect(() => {
-            getProduct()
-            .then((reset) => {
-                setProductData(reset)
+            getProduct2()
+            .then((res) => {
+                setProductData(res)
             })
     }, [id]);
 
 
 
-    const getProduct = async () => {
-        const docRef = doc(db,'products', id)
-        const docSnapshot = await getDoc(docRef)
-        let product = docSnapshot.data()
-        product.id = docSnapshot.id
+    const getProduct2 = async () => {
+        const docRef2 = doc(db, 'oferta', id)
+        const docSnapshot2 = await getDoc(docRef2)
+        let product = docSnapshot2.data()
+        product.id = docSnapshot2.id
         return product
 
     }
-
 
     return (
 

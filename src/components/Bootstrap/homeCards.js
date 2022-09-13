@@ -4,55 +4,50 @@ import CardGroup from 'react-bootstrap/CardGroup';
 
 function GroupExample() {
   return (
+    <div className="cardsInfo">
     <CardGroup>
-      <Card>
-        <Card.Img variant="top" src="holder.js/100px160" />
+      <Card className="cardsBox">
+        <Card.Img variant="top" src="../assets/card1.jpg" />
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
+          <Card.Title>QUIENES SOMOS?</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+          BK TECH es una tienda de tecnología dedicada a la venta de notebooks, pc de escritorio, impresoras, monitores y accesorios de informática.
           </Card.Text>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">Last updated 3 mins ago</small>
         </Card.Footer>
       </Card>
-      <Card>
-        <Card.Img variant="top" src="holder.js/100px160" />
+      <Card className="cardsBox">
+        <Card.Img variant="top" src="../assets/card2.jpg" />
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
+          <Card.Title>VENTAS CORPORATIVAS</Card.Title>
           <Card.Text>
-            This card has supporting text below as a natural lead-in to
-            additional content.{' '}
+            Solicita tu cotización especial para empresas.
           </Card.Text>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">Last updated 3 mins ago</small>
         </Card.Footer>
       </Card>
-      <Card>
-        <Card.Img variant="top" src="holder.js/100px160" />
+      <Card className="cardsBox">
+        <Card.Img variant="top" src="../assets/card3.jpg" />
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
+          <Card.Title>AURICULARES GAMER</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
+          Consejos para realizar una compra que se adecue a los que estas buscando.
           </Card.Text>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">Last updated 3 mins ago</small>
         </Card.Footer>
       </Card>
-      <Card>
-        <Card.Img variant="top" src="holder.js/100px160" />
+      <Card className="cardsBox">
+        <Card.Img variant="top" src="../assets/card4.jpg" />
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
+          <Card.Title>SILLAS ERGONOMICAS VS. GAMER</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
+          Cual consideras que son mejores para tu postura?.
           </Card.Text>
         </Card.Body>
         <Card.Footer>
@@ -60,6 +55,7 @@ function GroupExample() {
         </Card.Footer>
       </Card>
     </CardGroup>
+    </div>
   );
 }
 

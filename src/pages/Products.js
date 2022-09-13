@@ -1,6 +1,7 @@
 
 
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer"
+import ItemListContainer2 from "../components/ItemListContainer/ItemListContainer2"
 const Products = () => {
 
 
@@ -8,8 +9,10 @@ return (
 
 
       <section>
+            <ItemListContainer2 secciones2="OFERTAS"/>
             <ItemListContainer secciones="PRODUCTOS" />
       </section>
+
 
 
 

@@ -7,24 +7,14 @@ export const CartContext = createContext()
 const CartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState([])
 
-    const alertSwalERROR = () =>{
-        swal({
-            icon: 'error',
-            text: 'YA TIENES ESTE PRODUCTO EN EL CARRITO',
-        })
-    }
-
-    const alertSwalOK = () =>{
-        swal({
-            icon: 'success',
-            text: 'AGREGASTE EL PRODUCTO AL CARRITO',
-        })
-    }
 
     const addProductToCart = (item, qty) => {
         const newItem = {...item, qty};
         if (cartProducts.some(product=> product.id == newItem.id)){       
-            alertSwalERROR()
+            swal({
+                icon: 'error',
+                text: 'YA TIENES ESTE PRODUCTO EN EL CARRITO',
+            })
             const newCart = cartProducts.map( product =>{
                 if(product.id == newItem.id){
                     product.qty = product.qty + newItem.qty;
@@ -35,7 +25,10 @@ const CartProvider = ({children}) => {
         }        
         else{      
             setCartProducts([...cartProducts, newItem]);
-            alertSwalOK()
+            swal({
+                icon: 'success',
+                text: 'AGREGASTE EL PRODUCTO AL CARRITO',
+            })
         }         
     }
     
@@ -49,7 +42,6 @@ const CartProvider = ({children}) => {
         setCartProducts([])
     }
 
-    console.log("cartProducts: ", cartProducts)
     const data = {
         cartProducts,
         setCartProducts,

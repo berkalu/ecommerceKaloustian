@@ -16,6 +16,7 @@ const NavBar = () => {
                             <ul>
                             <Link to="/categorias/Notebook" className="subitem"><li><button className='button2'>Notebooks</button></li></Link>
                             <Link to="/categorias/Placa" className="subitems"><li><button className='button2'>Placas</button></li></Link>
+                            <Link to="/categorias2/Ofertas" className="subitems"><li><button className='button2'>Ofertas</button></li></Link>
                             </ul>
                             </div>
                         </li>

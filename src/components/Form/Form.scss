@@ -1,0 +1,151 @@
+
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+    background-color: black;
+    .success2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
+        margin-bottom: 100px;
+        background-color: black;
+        color: white;
+        padding: 20px;
+        border-radius: 10%;
+        margin: auto;
+        h4 {
+            color: red;
+        }
+    }
+    .btnsubmit2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        cursor: pointer;
+        width: 30%;
+        margin: auto;
+        font-size: 15px;
+        background-color: #429595;
+            a {
+            text-decoration: none;
+            color: black;
+            }        
+    }
+    .form-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    background-color: lightgray;
+    padding: 50px;
+    width: 500px;
+    label {
+        margin-right: 15px;
+    }
+    input {
+        height: 35px;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+        
+    }
+    .form-labels2{
+        text-align: center;
+        margin-bottom: 15px;
+        width: 400px;
+        textarea {
+            text-align: center;
+            width: 100%;
+            height: 100px;
+        }
+        .error {
+            color: red;
+            svg {
+                height: 20%;
+            }
+        }
+    
+}
+}}
+
+.modal-custom2 {
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    height: 99%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 5px 5px #00000047;
+    border-radius: 5px;
+    padding: 20px;
+    overflow: hidden;
+    background-color:grey;
+    svg {
+        margin: auto;
+        cursor: pointer;
+    }
+    .success {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
+        margin-bottom: 100px;
+        background-color: white;
+        h4 {
+            color: red;
+        }
+    }
+    .form-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        font-size: 10px;
+        .form-labels{
+            width: 40%;
+        .error {
+            color: red;
+            svg {
+                height: 20%;
+            }
+        }
+        input {
+            height: 35px;
+            width: 100%;
+            text-align: center;
+            
+        }
+    }
+    .btnsubmit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        cursor: pointer;
+        width: 30%;
+        margin: auto;
+        font-size: 15px;
+        background-color: #429595;
+            a {
+            text-decoration: none;
+            color: black;
+            }        
+    }
+    }
+}
