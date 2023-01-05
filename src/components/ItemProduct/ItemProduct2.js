@@ -13,7 +13,7 @@ const ItemProduct2 = ({ data }) => {
 
 
     return (
-        <div className='contenedor'>
+        <div className='contenedor2'>
             <Link to={`/productoss/${id}`}>
 
                 <div className="item-product">

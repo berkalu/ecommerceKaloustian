@@ -17,3 +17,21 @@
     }
     }
 }
+
+@media all and (max-width: 426px) {
+    .contact {
+        display: flex;
+        flex-direction: column;
+        .contactInfo {
+            width: 95%;
+            margin-bottom: 30px;
+            .contactImage {
+            img {
+                width: 80%;
+                margin: auto;
+                margin-bottom: 10px;
+            }
+            }
+        }
+}
+}

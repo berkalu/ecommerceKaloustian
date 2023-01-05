@@ -30,7 +30,7 @@ const Checkout = () => {
                                     <h2>{product.title}</h2>
                                     <h6 className='counter2'>SELECCIONASTE {product.counter} UNIDAD/ES</h6>
                                     <h6 className="btn2">COSTO POR UNIDAD: <b>USD$ {product.price}</b></h6><br></br>
-                                    <h6 className='subtotal2'>TOTAL: USD$ {subtotal}</h6>
+                                    <h6 className='subtotal2'>TOTAL: <b>USD$ {subtotal}</b></h6>
                                     <div className='buttons-checkout'>
                                         <button className="comprar1" onClick={() => removeProductFromCart(product.id)}>ELIMINAR</button>
                                     </div>

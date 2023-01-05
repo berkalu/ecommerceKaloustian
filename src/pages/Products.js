@@ -9,7 +9,7 @@ return (
 
 
       <section>
-            <ItemListContainer2 secciones2="OFERTAS"/>
+            <ItemListContainer2 secciones2="SALE"/>
             <ItemListContainer secciones="PRODUCTOS" />
       </section>
 

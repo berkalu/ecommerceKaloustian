@@ -21,7 +21,6 @@ const ItemDetail = ({ data, setShowModal, setShowModal2, setShowModal3, setShowM
                 <img className='img1' src={`../assets/${image}`} alt="Imagen producto" onClick={() => setShowModal(true)}  />
             </div>
             <div className="buttons">
-                    <span className="categoria2">{category}</span>
                     <h1>{title}</h1>
                     <p className='description2' >{description}</p>
                     <span className="precio2">USD$ {price}</span>

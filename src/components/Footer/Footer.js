@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="footerContainer">
             <div className="footerLinks">
                 <h3>ENLACES</h3>
-                <span><Link to="/categorias/Oferta"><p>HOME</p></Link></span>
+                <Link to="/"><p>HOME</p></Link>
                 <Link to="/productos"><p>PRODUCTOS</p></Link>
                 <Link to="/About"><p>NOSOTROS</p></Link>
                 <Link to="/Contact"><p>CONTACTANOS</p></Link>

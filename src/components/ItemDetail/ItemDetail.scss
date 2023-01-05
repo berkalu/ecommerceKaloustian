@@ -27,8 +27,7 @@ margin-top: 50px;
         margin: 10px;
         .img1 {
             margin: 15px;
-            width: 500px;
-            height: 500px;
+            width: 95%;
             display: flex;
             border-radius: 10%;
             cursor: pointer;
@@ -65,4 +64,44 @@ margin-top: 50px;
         }     
     }
 }
+}
+
+
+@media all and (max-width: 426px) {
+    .detContainer {
+        margin-top: 50px;
+        .item-product-detail {
+            flex-direction: column;
+            width: 80%;
+            .img-small {
+                display: none;
+            }
+            .img-big {
+                margin: 0px;
+                .img1 {
+                    margin: auto;
+                    width: 100%;
+                }
+            }   
+            .buttons {
+                margin-top: 10px;
+                .stock2 {
+                    margin: 5px;
+                    text-align: center;
+                    font-size: 10px;
+                }
+                h1 {
+                    font-size: 20px;
+                }
+                .precio2 {
+                    font-size: 20px;
+                }     
+            }
+        }
+        }
+}
+
+@media only screen and (max-width: 926px) {
+
+
 }

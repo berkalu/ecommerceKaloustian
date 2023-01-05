@@ -172,3 +172,57 @@
     }
     }
 }
+
+@media all and (max-width: 426px) {
+    .container-checkout {
+        margin-top: 30px;
+        .item-product-checkout{
+            width: 90%;
+            img {
+                width: 50%;
+                margin: auto;
+        }
+        .item-product-checkout2 {
+            width: 90%;
+            font-size: 10px;
+            h2 {
+                font-size: 20px;
+            }
+            h6 {
+                font-size: 12px;
+            }
+        }
+        }
+        .checkout {
+            width: 70%;
+            background-color: black;
+            .total2 {
+                width: 80%;
+            }
+            img {
+                width: 100%;
+            }
+            .comprar2 {
+                width: 60%;      
+            }
+        }
+    }
+    
+    .modal-custom2 {
+        height: 80%;
+        width: 70%;
+        .success {
+            height: 50%;
+            margin-bottom: 100px;
+        }
+        .form-container {
+            height: 100%;
+            .form-labels{
+                width: 95%;
+            }
+            input {
+                width: 100%;
+            }
+        }
+        }
+    }

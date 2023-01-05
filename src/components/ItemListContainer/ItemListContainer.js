@@ -36,8 +36,7 @@ const ItemListContainer = ({ secciones }) => {
 
     return (
         <>
-            <div className='container'>
-                <h2 className='secciones'>{secciones}</h2>
+            <div className='container1'>
                 <h3 className='seccionesid hidden'>{category}</h3>
                 {
                 listProducts.length ?

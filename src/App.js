@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
+import NavBar2 from './components/NavBar/NavBar2';
 import Footer from './components/Footer/Footer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemListContainer2 from './components/ItemListContainer/ItemListContainer2';
@@ -18,7 +19,7 @@ function App() {
     <CartProvider >
     <BrowserRouter>
       <div className="containerPrin">
-        <NavBar />
+        <NavBar2 />
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/contact" element={<Contact />} />

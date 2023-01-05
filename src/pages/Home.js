@@ -11,8 +11,8 @@ return (
 
     <>
         <section className="home">
+            <ItemListContainer2 secciones2="SALE"/>
             <Carousel/>
-            <ItemListContainer2 secciones2="OFERTAS"/>
             <CardGroup/>
         </section>
     </>

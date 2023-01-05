@@ -1,11 +1,9 @@
 .home {
-    margin-top: -90px;
     .carousel {
 
         width: 95%;
         margin: auto;
-        margin-bottom: 30px;
-        margin-top: 100px;
+        margin-bottom: 20px;
     }
     .cardsInfo {
         width: 90%;
@@ -17,4 +15,18 @@
         }
     }
 
+}
+
+@media all and (max-width: 426px) {
+    .home {
+        .carousel {
+            .carousel-inner {
+                .carousel-item {
+                    img {
+                        height: 180px;
+                    }
+                }
+            }
+        }
+    }
 }
